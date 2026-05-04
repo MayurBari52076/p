@@ -1,0 +1,36 @@
+7.1 Insert Document (Create)
+db.students.insertOne({
+name: "Ravi",
+age: 20,
+marks: 85
+})
+Insert multiple documents:
+db.students.insertMany([
+{name: "Amit", age: 21, marks: 90},
+{name: "Neha", age: 19, marks: 75}
+])
+
+7.2 Query Document (Read)
+db.students.find()
+Filter query:
+db.students.find({marks: {$gt: 80}})
+
+7.3 Update Document
+db.students.updateOne(
+{name: "Ravi"},
+{$set: {marks: 88}}
+)
+Update multiple:
+db.students.updateMany(
+{},
+{$set: {status: "active"}}
+)
+
+7.4 Delete Document
+db.students.deleteOne({name: "Amit"})
+Delete multiple:
+db.students.deleteMany({marks: {$lt: 50}})
+
+8. Sample Output
+{ "_id": ObjectId(...), "name": "Ravi", "age": 20, "marks": 88, "status": "active" }
+{ "_id": ObjectId(...), "name": "Neha", "age": 19, "marks": 75, "status": "active" }
